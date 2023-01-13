@@ -1,0 +1,114 @@
+.main {
+  margin-top: 40px;
+}
+
+.ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  gap: 16px;
+}
+
+.li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.li:hover {
+  opacity: 0.3;
+}
+
+.p {
+  margin: 0 16px 0 0;
+  color: #848282;
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  transform: rotate(90deg);
+}
+
+.posts {
+  list-style-type: none;
+  padding: 0;
+  margin: 40px auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.post {
+  max-width: 320px;
+  position: relative;
+}
+
+.health {
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  background-image: url("../../icons/health.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: 0.2s;
+}
+
+.healthActive {
+  background-image: url("../../icons/healthActive.svg");
+}
+
+.image {
+  max-width: 320px;
+  min-height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  margin: 0;
+}
+
+.subtitle {
+  margin: 0;
+  color: #696767;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #696767;
+}
+
+.star {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (max-width: 760px) {
+  .posts {
+    gap: 20px;
+    justify-content: center;
+  }
+  .post {
+    margin: 0 auto;
+    max-width: 300px;
+  }
+  .image {
+    max-width: 300px;
+    height: 300px;
+  }
+}

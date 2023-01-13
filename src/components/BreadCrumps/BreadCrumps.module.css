@@ -1,0 +1,33 @@
+.ul {
+  margin-top: 200px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 0;
+  list-style-type: none;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+
+.li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: #848282;
+}
+
+.p {
+  margin: 0 16px 0 0;
+}
+
+.icon {
+  width: 10px;
+  height: 10px;
+}
+
+@media screen and (max-width: 950px) {
+  .ul {
+    margin-top: 350px;
+  }
+}
