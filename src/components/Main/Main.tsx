@@ -1,5 +1,7 @@
 import styleMain from "./Main.module.css";
 import health from "../../icons/health.svg";
+import { useState } from "react";
+import { Pagination } from "../Pagination/Pagination";
 
 export const Main = () => {
   const posts = [
@@ -75,7 +77,85 @@ export const Main = () => {
       stats: 4.7,
       status: "new",
     },
+    {
+      id: 9,
+      src: "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
+      price: 2099,
+      title: "Робот-мойщик окон Hobot",
+      days: 1,
+      stats: 4.7,
+      status: "new",
+    },
+    {
+      id: 10,
+      src: "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
+      price: 2099,
+      title: "Робот-мойщик окон Hobot",
+      days: 1,
+      stats: 4.7,
+      status: "new",
+    },
+    {
+      id: 11,
+      src: "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
+      price: 2099,
+      title: "Робот-мойщик окон Hobot",
+      days: 1,
+      stats: 4.7,
+      status: "new",
+    },
+    {
+      id: 12,
+      src: "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
+      price: 2099,
+      title: "Робот-мойщик окон Hobot",
+      days: 1,
+      stats: 4.7,
+      status: "new",
+    },
+    {
+      id: 13,
+      src: "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
+      price: 2099,
+      title: "Робот-мойщик окон Hobot",
+      days: 1,
+      stats: 4.7,
+      status: "new",
+    },
+    {
+      id: 14,
+      src: "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
+      price: 2099,
+      title: "Робот-мойщик окон Hobot",
+      days: 1,
+      stats: 4.7,
+      status: "new",
+    },
+    {
+      id: 15,
+      src: "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
+      price: 2099,
+      title: "Робот-мойщик окон Hobot",
+      days: 1,
+      stats: 4.7,
+      status: "new",
+    },
+    {
+      id: 16,
+      src: "https://images.ctfassets.net/kdawwlsweh27/2LtummpjO849eQ83yGGiUN/316e62a71020a924f9f663b6ca6b7eda/Fresh_Stock_Content.jpg",
+      price: 2099,
+      title: "Робот-мойщик окон Hobot",
+      days: 1,
+      stats: 4.7,
+      status: "new",
+    },
   ];
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(6);
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPost = posts.slice(firstPostIndex, lastPostIndex);
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
   return (
     <main className={styleMain.main}>
       <ul className={styleMain.ul}>
@@ -121,7 +201,7 @@ export const Main = () => {
         </li>
       </ul>
       <ul className={styleMain.posts}>
-        {posts.map((i) => {
+        {currentPost.map((i) => {
           return (
             <li className={styleMain.post} key={i.id}>
               <img src={i.src} alt="image" className={styleMain.image} />
@@ -158,7 +238,13 @@ export const Main = () => {
             </li>
           );
         })}
+        <div></div>
       </ul>
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={posts.length}
+        paginate={paginate}
+      />
     </main>
   );
 };
